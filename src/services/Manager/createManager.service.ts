@@ -9,7 +9,7 @@ const createManagerService = async ({
   name,
   email,
   password,
-}: IManageRequest): Promise<Manager> => {
+}: IManageRequest): Promise<Partial<IManageRequest>> => {
   const managerExists = await prisma.manager.findFirst({
     where: {
       email,
