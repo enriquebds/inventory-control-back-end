@@ -12,3 +12,10 @@ export interface IProductList {
   description: string;
   managerId?: string | null | undefined;
 }
+
+export interface IProductPatchRequest {
+  id?: string;
+  name?: string;
+  category?: string;
+  description?: string;
+}
