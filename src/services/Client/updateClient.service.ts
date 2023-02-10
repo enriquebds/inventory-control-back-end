@@ -1,14 +1,14 @@
 import { Client } from "@prisma/client";
 import { prisma } from "../../../prisma/client/client";
 import { AppError } from "../../errors/AppError";
-import { IClientPatchRequest } from "../../interfaces/client";
+import { IClientList, IClientPatchRequest } from "../../interfaces/client";
 
 const updateClientService = async ({
   id,
   name,
   email,
   password,
-}: IClientPatchRequest): Promise<Client> => {
+}: IClientPatchRequest): Promise<IClientList> => {
   const client = await prisma.client.findFirst({
     where: {
       id,
