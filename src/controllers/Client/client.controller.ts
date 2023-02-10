@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import addingProductService from "../../services/Client/addingProduct.service";
 import createClientService from "../../services/Client/createClient.service";
 import deleteClientService from "../../services/Client/deleteClient.service";
 import listClientService from "../../services/Client/listClient.service";
@@ -50,5 +51,13 @@ export class ClientControllers {
     });
 
     return res.json(updatedClient);
+  }
+
+  async addingProduct(req: Request, res: Response) {
+    const { id, idUser } = req.params;
+
+    const product = await addingProductService(id, idUser);
+
+    return res.json(product);
   }
 }
