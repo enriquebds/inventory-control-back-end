@@ -10,3 +10,9 @@ export interface IManagerPatchRequest {
   email?: string;
   password?: string;
 }
+
+export interface IManagerList {
+  id: string;
+  name: string;
+  email: string;
+}
