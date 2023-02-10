@@ -10,3 +10,9 @@ export interface IClientPatchRequest {
   email?: string;
   password?: string;
 }
+
+export interface IClientList {
+  id: string;
+  name: string;
+  email: string;
+}

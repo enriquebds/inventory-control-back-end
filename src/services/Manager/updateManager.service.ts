@@ -8,7 +8,7 @@ const updateManagerService = async ({
   name,
   email,
   password,
-}: IManagerPatchRequest): Promise<Manager> => {
+}: IManagerPatchRequest): Promise<IManagerPatchRequest> => {
   const manager = await prisma.manager.findFirst({
     where: {
       id,

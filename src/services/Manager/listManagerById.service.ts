@@ -1,8 +1,9 @@
 import { Manager } from "@prisma/client";
 import { prisma } from "../../../prisma/client/client";
 import { AppError } from "../../errors/AppError";
+import { IManagerList } from "../../interfaces/manager";
 
-const listManagerById = async (id: string): Promise<Manager> => {
+const listManagerById = async (id: string): Promise<IManagerList> => {
   const manager = await prisma.manager.findFirst({
     where: {
       id,

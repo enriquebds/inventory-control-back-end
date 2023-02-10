@@ -1,7 +1,7 @@
 import { randomUUID } from "crypto";
 import { prisma } from "../../../prisma/client/client";
 import { AppError } from "../../errors/AppError";
-import { IClientRequest } from "../../interfaces/client";
+import { IClientList, IClientRequest } from "../../interfaces/client";
 import bcrypt from "bcrypt";
 import { Client } from "@prisma/client";
 
@@ -9,7 +9,7 @@ const createClientService = async ({
   name,
   email,
   password,
-}: IClientRequest): Promise<Client> => {
+}: IClientRequest): Promise<IClientList> => {
   const clientAlreadyExists = await prisma.client.findFirst({
     where: {
       email,
