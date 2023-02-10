@@ -18,6 +18,10 @@ const tokenAuthMiddleware = (
         });
       }
 
+      req.user = {
+        email: decoded.email,
+        isManager: decoded.isManager,
+      };
       return next();
     }
   );
