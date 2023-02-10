@@ -15,12 +15,7 @@ route.post(
 );
 route.get("", productCrontrollers.list);
 route.get("/:id", productCrontrollers.listById);
-route.delete(
-  "/:id",
-  tokenAuthMiddleware,
-  verifyManager,
-  productCrontrollers.delete
-);
+route.delete("/:id", tokenAuthMiddleware, productCrontrollers.delete);
 route.patch(
   "/:id",
   tokenAuthMiddleware,
