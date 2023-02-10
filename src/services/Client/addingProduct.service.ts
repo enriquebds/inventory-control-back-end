@@ -4,10 +4,7 @@ import { AppError } from "../../errors/AppError";
 import { IClientList } from "../../interfaces/client";
 import { Product } from "@prisma/client";
 
-const addingProductService = async (
-  id: string,
-  idUser: string
-): Promise<boolean> => {
+const addingProductService = async (id: string, idUser: string) => {
   const product = await prisma.product.findFirst({
     where: {
       id,
@@ -33,9 +30,15 @@ const addingProductService = async (
         },
       },
     },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      products: true,
+    },
   });
 
-  return true;
+  return updateClient;
 };
 
 export default addingProductService;
