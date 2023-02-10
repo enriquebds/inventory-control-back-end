@@ -5,6 +5,7 @@ const clientControllers = new ClientControllers();
 const route = Router();
 
 route.post("", clientControllers.create);
+route.post("/product/:id/:idUser", clientControllers.addingProduct);
 route.get("", clientControllers.list);
 route.get("/:id", clientControllers.listById);
 route.delete("/:id", clientControllers.delete);
