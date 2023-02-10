@@ -25,7 +25,7 @@ const createProductService = async ({
       name,
     },
   });
-  console.log(productAlreadyExists);
+
   if (productAlreadyExists) {
     throw new AppError(400, "Product already exists");
   }
