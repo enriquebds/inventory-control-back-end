@@ -3,6 +3,7 @@ export interface IProductRequest {
   name: string;
   category: string;
   description: string;
+  price: number;
 }
 
 export interface IProductList {
@@ -10,6 +11,7 @@ export interface IProductList {
   name: string;
   category: string;
   description: string;
+  price: number;
   managerId?: string | null | undefined;
 }
 
@@ -17,5 +19,6 @@ export interface IProductPatchRequest {
   id?: string;
   name?: string;
   category?: string;
+  price?: number;
   description?: string;
 }

@@ -8,13 +8,14 @@ import updateProductService from "../../services/Product/updateProduct.service";
 export class ProductControllers {
   async create(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, category, description } = req.body;
+    const { name, category, description, price } = req.body;
 
     const product = await createProductService({
       id,
       name,
       category,
       description,
+      price,
     });
 
     return res.status(201).json(product);
@@ -46,13 +47,14 @@ export class ProductControllers {
 
   async update(req: Request, res: Response) {
     const { id } = req.params;
-    const { name, category, description } = req.body;
+    const { name, category, description, price } = req.body;
 
     const updatedProduct = await updateProductService({
       id,
       name,
       category,
       description,
+      price,
     });
 
     return res.json(updatedProduct);

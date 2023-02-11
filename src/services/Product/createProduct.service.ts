@@ -9,6 +9,7 @@ const createProductService = async ({
   name,
   category,
   description,
+  price,
 }: IProductRequest): Promise<Product> => {
   const manager = await prisma.manager.findFirst({
     where: {
@@ -46,6 +47,7 @@ const createProductService = async ({
       name,
       category,
       description,
+      price,
       managerId: manager?.id,
     },
   });

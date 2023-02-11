@@ -24,6 +24,7 @@ model Product {
   name String
   category String
   description String
+  price Float
   manager Manager? @relation(fields: [managerId], references: [id])
   managerId String?
   client Client? @relation(fields: [clientId], references: [id])

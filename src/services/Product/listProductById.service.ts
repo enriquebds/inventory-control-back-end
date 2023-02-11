@@ -12,6 +12,7 @@ const listProductByIdService = async (id: string): Promise<IProductRequest> => {
       name: true,
       category: true,
       description: true,
+      price: true,
       manager: {
         select: {
           id: true,
