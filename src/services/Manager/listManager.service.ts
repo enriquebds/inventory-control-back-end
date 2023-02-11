@@ -9,6 +9,7 @@ const listManagerService = async (): Promise<IManagerList[]> => {
       name: true,
       email: true,
       isManager: true,
+      products: true,
     },
   });
 
