@@ -31,7 +31,7 @@ const createClientService = async ({
       id: true,
       name: true,
       email: true,
-      products: true,
+      cart: true,
     },
   });
 
