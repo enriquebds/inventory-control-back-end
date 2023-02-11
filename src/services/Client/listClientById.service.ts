@@ -12,7 +12,18 @@ const listClientById = async (id: string): Promise<IClientList> => {
       id: true,
       name: true,
       email: true,
-      products: true,
+      cart: {
+        select: {
+          products: {
+            select: {
+              id: true,
+              name: true,
+              category: true,
+              price: true,
+            },
+          },
+        },
+      },
     },
   });
 

@@ -12,33 +12,51 @@ const addingProductService = async (id: string, idUser: string) => {
   });
 
   const client = await prisma.client.findFirst({
-    include: {
-      products: true,
-    },
     where: {
       id: idUser,
     },
   });
-  const updateClient = await prisma.client.update({
+
+  const cart = await prisma.cart.upsert({
     where: {
-      id: client?.id,
+      clientId_productId: {
+        clientId: client!.id,
+        productId: product!.id,
+      },
     },
-    data: {
+    update: {
       products: {
-        connect: {
-          id: product?.id,
+        connect: { id: product?.id },
+      },
+    },
+    create: {
+      client: { connect: { id: client?.id } },
+      products: { connect: { id: product?.id } },
+    },
+    select: {
+      client: {
+        select: {
+          id: true,
+          email: true,
+          name: true,
+          cart: {
+            select: {
+              products: {
+                select: {
+                  id: true,
+                  name: true,
+                  category: true,
+                  price: true,
+                },
+              },
+            },
+          },
         },
       },
     },
-    select: {
-      id: true,
-      name: true,
-      email: true,
-      products: true,
-    },
   });
 
-  return updateClient;
+  return cart;
 };
 
 export default addingProductService;
