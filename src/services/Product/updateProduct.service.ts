@@ -7,6 +7,7 @@ const updateProductService = async ({
   name,
   category,
   description,
+  price,
 }: IProductPatchRequest): Promise<IProductPatchRequest> => {
   const product = await prisma.product.findFirst({
     where: {
@@ -26,12 +27,14 @@ const updateProductService = async ({
       name: name ? name : product.name,
       category: category ? category : product.category,
       description: description ? description : product.description,
+      price: price ? price : product.price,
     },
     select: {
       id: true,
       name: true,
       category: true,
       description: true,
+      price: true,
     },
   });
 
