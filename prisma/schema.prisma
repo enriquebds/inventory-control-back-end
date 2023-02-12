@@ -33,7 +33,7 @@ model Product {
 model Cart {
   client Client @relation(fields: [clientId], references: [id], onDelete: Cascade)
   clientId String
-  products Product @relation(fields: [productId], references: [id])
+  products Product @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
 
   @@id([clientId, productId])
