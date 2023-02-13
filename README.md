@@ -112,7 +112,7 @@ Todas as rotas pedem que um Bearer Token seja passado com exceção dessas:
   - PATCH - /manager/:id
 - Client
   - POST - /client
-  - POST - /client/product/:id/id:User
+  - POST - /client/product/:id/:idUser
   - GET - /client
   - GET - /client/:id
   - PATCH - /client/:id
